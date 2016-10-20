@@ -1,0 +1,19 @@
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+#mapid { height: 300px; }
+
+/*.parallax {
+  z-index: 0;
+}*/
+.parallax-container {
+  height: 250px;
+}
+
+/*.parallax img {
+	display: inherit !important;
+}*/
