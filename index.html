@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="col s12">
-        <form id="cvForm" action="https://aqueous-earth-55235.herokuapp.com/upload" enctype="multipart/form-data" method="post">
+        <form id="cvForm" action="http://aqueous-earth-55235.herokuapp.com/upload" enctype="multipart/form-data" method="post">
           <div class="input-field col s12 m6">
             <input type="text" name="cvFirstName" id="first_name" class="validate">
             <label for="first_name">First Name</label>
@@ -165,7 +165,7 @@
           <ul>
             <li><a class="white-text" href="https://www.facebook.com/TalentsBeyondRefugees/"><i class="fa fa-facebook-official"> </i> Facebook</a></li>
             <li><a class="white-text" href="http://maps.google.com/?q=Herengracht, 1018 Amsterdam, Netherlands"><i class="fa fa-map"></i> Directions</a></li>
-            <li class="white-text"><i class="fa fa-envelope" > </i> Email us omaro.tbrefugees@gmail.com</li>
+            <li class="white-text"><i class="fa fa-envelope" > </i> Email us tbrefugees@gmail.com</li>
             <li><a href="https://twitter.com/TalentsBeyondRF" class="twitter-follow-button" data-show-count="false">Follow @TalentsBeyondRF</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>            
           </ul>
         </div>  
@@ -199,7 +199,7 @@
       $('#cvForm').submit(function() {
         $(this).ajaxSubmit({
           error: function(xhr) {
-            $("#cvMessage").html("<font color='red'> ERROR: " +xhr.status+" unable to upload files</font>");
+            $("#cvMessage").html("<font color='red'> Unable to upload files, please email tbrefugees@gmail.com </font>");
             status('Error: ' + xhr.status);
           },
           success: function(response) {
@@ -210,7 +210,7 @@
             }
             else if(res.responseDesc === "Failed captcha verification"){
               $("#cvMessage").html("<font color='red'>" + res.responseDesc + ".</font>");
-              setTimeout(function(){location.reload();}, 5000);
+              setTimeout(function(){grecaptcha.reset();}, 5000);
             }
             else if(res.responseDesc === "Success") {
               $("#cvMessage").html("<font color='green'>Thank you, your CV has been received, we will contact you soon.</font>");
