@@ -75,7 +75,20 @@
             <input type="file" name="datafile" class="dropify" data-max-file-size="5M" />
             <h5 class="header col s12 light flow-text" id="cvMessage"></h5>            
             <input class="btn red waves-effect waves-light" type="submit" value="Send">  
-            <div class="g-recaptcha" data-sitekey="6LcNngkUAAAAAEf830-4E9LEev6MruzAy6LT-zvA"></div>          
+            <div class="g-recaptcha" data-sitekey="6LcNngkUAAAAAEf830-4E9LEev6MruzAy6LT-zvA"></div>
+
+            <div id="cvPreloader" class="preloader-wrapper"> <!-- active -->
+              <div class="spinner-layer spinner-red-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>          
           </div>               
         </form>
         </div>
@@ -197,10 +210,12 @@
 <script>
     $(document).ready(function() {
       $('#cvForm').submit(function() {
+        $("#cvPreloader").addClass("active");
         $(this).ajaxSubmit({
           error: function(xhr) {
             $("#cvMessage").html("<font color='red'> Unable to upload files, please email tbrefugees@gmail.com </font>");
             status('Error: ' + xhr.status);
+            $("#cvPreloader").removeClass("active");
           },
           success: function(response) {
             console.log(response);
@@ -215,6 +230,7 @@
             else if(res.responseDesc === "Success") {
               $("#cvMessage").html("<font color='green'>Thank you, your CV has been received, we will contact you soon.</font>");
             }
+            $("#cvPreloader").removeClass("active");
           }
         });
         return false;
