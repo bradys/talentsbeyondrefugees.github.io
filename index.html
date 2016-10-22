@@ -213,22 +213,25 @@
         $("#cvPreloader").addClass("active");
         $(this).ajaxSubmit({
           error: function(xhr) {
-            $("#cvMessage").html("<font color='red'> Unable to upload files, please email tbrefugees@gmail.com </font>");
+            $("#cvMessage").html("<font color='red'> Unable to upload files, please email CV to tbrefugees@gmail.com </font>");
             status('Error: ' + xhr.status);
+            <a class="btn" onclick="Materialize.toast(res.responseDesc, 4000,'rounded',function(){alert('please email CV to tbrefugees@gmail.com')})">Please email CV to tbrefugees@gmail.com</a>
             $("#cvPreloader").removeClass("active");
           },
           success: function(response) {
             console.log(response);
             var res = JSON.parse(response);
             if(res.responseDesc === "Please select captcha") {
-              $("#cvMessage").html("<font color='red'>" + res.responseDesc + " and press send again.</font>");              
+              $("#cvMessage").html("<font color='red'>" + res.responseDesc + " and press send again.</font>");
+              Materialize.toast('Please select captcha', 3000, 'rounded')              
             }
             else if(res.responseDesc === "Failed captcha verification"){
               $("#cvMessage").html("<font color='red'>" + res.responseDesc + ".</font>");
+              <a class="btn" onclick="Materialize.toast(res.responseDesc, 4000,'rounded',function(){alert(res.responseDesc)})">res.responseDesc</a>
               setTimeout(function(){grecaptcha.reset();}, 5000);
             }
             else if(res.responseDesc === "Success") {
-              $("#cvMessage").html("<font color='green'>Thank you, your CV has been received, we will contact you soon.</font>");
+              $("#cvMessage").html("<font color='green'>Thank you, your CV has been received, we will contact you soon.</font>");              
             }
             $("#cvPreloader").removeClass("active");
           }
