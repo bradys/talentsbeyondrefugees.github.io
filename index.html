@@ -211,12 +211,13 @@
 <script>
     $(document).ready(function() {
 
-      $('#cvForm').submit(function() {
+      $('#cvForm').submit(function(event) {
+        event.preventDefault();
 
         $("#cvPreloader").addClass("active");
 
         $(this).ajaxSubmit({
-
+          crossDomain: true,
           error: function(xhr) {
 
             $("#cvMessage").html("<font color='red'> Unable to upload files, please email CV to tbrefugees@gmail.com </font>");
