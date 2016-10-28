@@ -7,28 +7,17 @@
   <meta name="theme-color" content="#ff0000">  
   <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/ >  
   <title>Talents Beyond Refugees</title>
-
-  <!-- CSS  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.1/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
-  <!-- <link rel="stylesheet" href="scripts/font-awesome/css/font-awesome.min.css"> -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="scripts/leaflet/dist/leaflet.css" /> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- <link href="scripts/materialize/dist/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src='https://www.google.com/recaptcha/api.js'></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/main-442402ae50.css" media="screen,projection"/>
 </head>
 <body>
-
   <div class="navbar-fixed">
     <nav class="red" role="navigation">
       <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img height="56px" src="img/header_image.jpg" alt="TBR"></a>
       </div>
     </nav>
   </div>
-
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <div class="parallax-container">
@@ -97,7 +86,6 @@
       <br><br>
     </div>
   </div>
-
   <div class="container">
     <div class="parallax-container">
       <div class="parallax">      
@@ -195,105 +183,6 @@
         </div>
       </div>      
   </footer>
-
-
-  <!--  Scripts-->  
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-  <!-- <script src="scripts/jquery/dist/jquery.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>  
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.js"></script>
-  <!-- <script src="scripts/materialize/dist/js/materialize.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>  
-  <!-- <script src="scripts/leaflet/dist/leaflet.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.1/js/dropify.min.js"></script>
-
-<script>$('.dropify').dropify();</script>  
-<script>
-    $(document).ready(function() {
-
-      $('#cvForm').submit(function(event) {
-        event.preventDefault();
-
-        $("#cvPreloader").addClass("active");
-
-        $(this).ajaxSubmit({
-          crossDomain: true,
-          error: function(xhr) {
-
-            $("#cvMessage").html("<font color='red'> Unable to upload files, please email CV to tbrefugees@gmail.com </font>");
-            status('Error: ' + xhr.status);
-            Materialize.toast("Please email CV to tbrefugees@gmail.com", 4000,'rounded');
-            alert('please email CV to tbrefugees@gmail.com');
-            $("#cvPreloader").removeClass("active");
-
-          },
-
-          success: function(response) {
-
-            console.log(response);
-            var res = JSON.parse(response);
-            if(res.responseDesc === "Please select captcha") {
-              $("#cvMessage").html("<font color='red'>" + res.responseDesc + " and press send again.</font>");
-              Materialize.toast('Please select captcha', 3000, 'rounded')              
-            }
-            else if(res.responseDesc === "Failed captcha verification"){
-              $("#cvMessage").html("<font color='red'>" + res.responseDesc + ".</font>");
-              Materialize.toast(res.responseDesc, 4000,'rounded');              
-              setTimeout(function(){grecaptcha.reset();}, 5000);
-              alert(res.responseDesc);
-            }
-            else if(res.responseDesc === "Success") {
-              $("#cvMessage").html("<font color='green'>Thank you, your CV has been received, we will contact you soon.</font>");              
-            }
-            $("#cvPreloader").removeClass("active");
-
-          }
-
-        });
-        return false;
-      });
-    });
-
-</script>
-
-  <!-- <script src="js/init.js"></script> -->
-  <script>
-    var mymap = L.map('mapid').setView([52.365441, 4.900343], 18);
-
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
-      maxZoom: 18,
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      id: 'mapbox.streets'
-    }).addTo(mymap);
-
-    L.marker([52.365441, 4.900343]).addTo(mymap)
-      .bindPopup("<a href='http://maps.google.com/?q=Herengracht, 1018 Amsterdam, Netherlands'><b>1018 Amsterdam, Netherlands</b></a>").openPopup();
-
-    var popup = L.popup();
-  </script>
-  <script>
-    $(document).ready(function(){
-      $('.parallax').parallax();
-    });
-  </script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-86353034-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+  <script src="js/main-7adfb16360.js"></script>
   </body>
 </html>
