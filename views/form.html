@@ -30,18 +30,17 @@
             </div>
 
             <div class="col s12">                      
-              <div ngf-drop ngf-select ng-model="datafile" class="drop-box" ngf-max-size="1MB" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="false" ngf-model-invalid="errorFile" accept="text/plain, application/msword, application/postscript, application/pdf, application/rtf, text/richtext, text/plain, application/zip" ngf-pattern="'text/plain,application/msword,application/postscript,application/pdf,application/rtf,text/richtext,text/plain,application/zip'">Press here to select CV<br><br></div>
+              <div ngf-drop ngf-select="submit($file, $invalidFiles)" ng-model="datafile" class="drop-box" ngf-max-size="1MB" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="false" accept="text/plain, application/msword, application/postscript, application/pdf, application/rtf, text/richtext, text/plain, application/zip" ngf-pattern="'text/plain,application/msword,application/postscript,application/pdf,application/rtf,text/richtext,text/plain,application/zip'">Press here to select CV<br><br></div>
               <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>            
               <br>      
               <ul>
-                  <li style="font:smaller">{{datafile.name}} {{datafile.$error}} {{datafile.$errorParam}}</li>
+                  <li style="font:smaller">{{datafile.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}</li>
               </ul>            
             </div>   
 
-            <div class="col s12">
-              <h5 class="header col s12 light flow-text" id="cvMessage"></h5>                        
-              <button class="btn red waves-effect waves-light" type="submit" ng-click="submit()">
-              Send</button>            
+            <div class="col s12">        
+              <div ng-class="userFeedbackColor"> {{userFeedback}}</div>      
+              <button class="btn red waves-effect waves-light" type="submit" ng-click="submit()">Send</button>            
             </div>
             <div class="col s12">
               <div ng-show="uploading" class="progress">
