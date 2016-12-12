@@ -1,0 +1,64 @@
+      <div class="row center">
+        <div class="col s12">
+            <br><br>    
+            <div class="card-panel red">
+              <span class="white-text">Get started by sending us your CV</span>
+            </div>
+        </div>
+      
+        <div class="col s12">   
+
+          <form id="cvForm" class="css-form" > <!-- action="" enctype="multipart/form-data" method="post" -->
+
+            <div class="input-field col s12 m6">
+              <input type="text" ng-model="cvFirstName" id="first_name" class="validate" required>
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input type="text" ng-model="cvLastName" id="last_name" class="validate" required>
+              <label for="last_name">Last Name</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input type="email" ng-model="cvEmail" id="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input type="tel" ng-model="cvTelephone" id="telephone" class="validate">
+              <label for="tel">Phone number</label>
+            </div>
+
+            <div class="col s12">                      
+              <div ngf-drop ngf-select ng-model="datafile" class="drop-box" ngf-max-size="1MB" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="false" ngf-model-invalid="errorFile" accept="text/plain, application/msword, application/postscript, application/pdf, application/rtf, text/richtext, text/plain, application/zip" ngf-pattern="'text/plain,application/msword,application/postscript,application/pdf,application/rtf,text/richtext,text/plain,application/zip'">Press here to select CV<br><br></div>
+              <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>            
+              <br>      
+              <ul>
+                  <li style="font:smaller">{{datafile.name}} {{datafile.$error}} {{datafile.$errorParam}}</li>
+              </ul>            
+            </div>   
+
+            <div class="col s12">
+              <h5 class="header col s12 light flow-text" id="cvMessage"></h5>                        
+              <button class="btn red waves-effect waves-light" type="submit" ng-click="submit()">
+              Send</button>            
+            </div>
+            <div class="col s12">
+              <div ng-show="uploading" class="progress">
+                  <div class="determinate" style="width: {{progressPercentage}}%"></div>
+              </div>
+            </div>
+          </div>   
+
+
+          <span class="hide">
+            <label for="zipcode" class="hide">Your zipcode</label>
+            <input type="text" id="zipcode" value="" ng-pattern="zipRegex" ng-model="zipcode" class="hide"/>
+          </span>          
+        </form>
+
+        </div>
+
+
+      </div>
+      <br><br>        

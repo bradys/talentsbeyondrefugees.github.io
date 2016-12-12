@@ -1,132 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <meta name="author" content="Stephen Brady">
-  <meta name="theme-color" content="#ff0000">  
-  <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/ >  
-  <title>Talents Beyond Refugees</title>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/main-442402ae50.css" media="screen,projection"/>
-</head>
-<body>
-  <div class="navbar-fixed">
-    <nav class="red" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img height="56px" src="img/header_image.jpg" alt="TBR"></a>
-      </div>
-    </nav>
-  </div>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <div class="parallax-container">
-    <div class="parallax">      
-      <img src="img/wordcloud.png">
-    </div>
-  </div>
-      <br> 
-      <h1 class="header center">Talents Beyond Refugees</h1>
-      <div class="row center">
-        <h5 class="header col s12 light flow-text">We are dedicated to help and empower refugees to find their passions, and start their career in the Dutch labor market.</h5>
-      </div>
-          <div class="parallax-container">
-      <div class="parallax">      
-        <img src="img/wordcloud.png">
-    </div>
-    </div>
-      <div class="row center">
-        <div class="col s12">
-            <br><br>    
-            <div class="card-panel red">
-              <span class="white-text">Get started by sending us your CV</span>
-            </div>
-        </div>
-        <div class="col s12">
-        <form id="cvForm" action="http://aqueous-earth-55235.herokuapp.com/upload" enctype="multipart/form-data" method="post">
-          <div class="input-field col s12 m6">
-            <input type="text" name="cvFirstName" id="first_name" class="validate">
-            <label for="first_name">First Name</label>
-          </div>
-          <div class="input-field col s12 m6">
-            <input type="text" name="cvLastName" id="last_name" class="validate">
-            <label for="last_name">Last Name</label>
-          </div>
-          <div class="input-field col s12">
-            <input type="email" name="cvEmail" id="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-          <div class="input-field col s12">
-            <input type="tel" name="cvTelephone" id="telephone" class="validate">
-            <label for="tel">Phone number</label>
-          </div>
-          <div class="col s12">
-            <input type="file" name="datafile" class="dropify" data-max-file-size="5M" />
-            <div class="g-recaptcha" data-sitekey="6LcNngkUAAAAAEf830-4E9LEev6MruzAy6LT-zvA"></div>
-            <h5 class="header col s12 light flow-text" id="cvMessage"></h5>                        
-            <input class="btn red waves-effect waves-light" type="submit" value="Send">
-          </div>   
-          <div class="col s12">
-            <div id="cvPreloader" class="preloader-wrapper">
-              <div class="spinner-layer spinner-red-only">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
-              </div>
-            </div> 
-          </div>            
-        </form>
-        </div>
-      </div>
-      <br><br>
-    </div>
-  </div>
-  <div class="container">
-    <div class="parallax-container">
-      <div class="parallax">      
-        <img src="img/wordcloud.png">
-    </div>
-    </div>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Talents Beyond Refugees</title>
+    <meta name="description" content="Helping Syrian Refugees in Netherlands find employment">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <meta name="author" content="Stephen Brady">
+    <meta name="theme-color" content="#ff0000">          
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/vendor-85be6a0fee.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main-b715b5525d.css">
+  </head>
 
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center red-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Future</h5>
+  <body ng-app="talentsbeyondrefugeesApp">
+    <!-- [if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif] -->
 
-            <p class="light flow-text">We will enhance your chances for faster integration and better future in the Netherlands.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center red-text"><i class="material-icons">group add</i></h2>
-            <h5 class="center">Opportunities</h5>
-
-            <p class="light flow-text">We provide multiple opportunities through networking events where companies offer jobs, internships and training based on your talents and experiences. </p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center red-text"><i class="material-icons">public</i></h2>
-            <h5 class="center">Understanding</h5>
-
-            <p class="light flow-text">We understand the Syrian work experience and backgrounds professionally, and together with our Dutch partners we will create a balanced merge to place the right person in the right place. </p>
-          </div>
-        </div>
-      </div>
+    <div ui-view="header"></div>
 
     <div class="parallax-container">
       <div class="parallax">      
-        <img src="img/wordcloud.png">
+        <img src="images/wordcloud.png">
       </div>
-    </div>
+    </div>    
+
+    <div ui-view="heading"></div>
+
+    <div class="parallax-container">
+      <div class="parallax">      
+        <img src="images/wordcloud.png">
+      </div>
+    </div>    
+
+    <div ui-view="form"></div>
+
+    <div class="parallax-container">
+      <div class="parallax">      
+        <img src="images/wordcloud.png">
+      </div>
+    </div>  
+
+    <div ui-view="content"></div>
+
+    <div class="parallax-container">
+      <div class="parallax">      
+        <img src="images/wordcloud.png">
+      </div>
+    </div> 
+
 
     <div class="col l12 s12">    
       <br><br>
@@ -136,53 +60,58 @@
 
     <div class="parallax-container">
       <div class="parallax">      
-        <img src="img/wordcloud.png">
+        <img src="images/wordcloud.png">
       </div>
-    </div>
+    </div> 
 
-    <div class="col l12 s12">
-      <br><br>    
-      <a class="twitter-timeline" href="https://twitter.com/TalentsBeyondRF">Tweets by TalentsBeyondRefugee</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <br><br>    
-    </div>  
+
+    <div ui-view="social"></div>
 
     <div class="parallax-container">
       <div class="parallax">      
-        <img src="img/wordcloud.png">
+        <img src="images/wordcloud.png">
       </div>
-    </div>
-  </div>
-
-  <footer class="page-footer red">
-    <div class="container">
-      <div class="row center">
-        <div class="col l6 s12">
-          <h5 class="white-text">Who we are</h5>
-          <p class="grey-text text-lighten-4 flow-text">Talents Beyond Refugees is a new start up dedicated to help refugees & empower them to find their passions and start their career in the Dutch labor market.</p>
+    </div> 
+    <div ui-view="footer"></div> 
 
 
-        </div>
-        <div class="col l3 s12 contact-us">
-          <h5 class="white-text">Find us</h5>
-          <ul>
-            <li><a class="white-text" href="https://www.facebook.com/TalentsBeyondRefugees/"><i class="fa fa-facebook-official"> </i> Facebook</a></li>
-            <li><a class="white-text" href="http://maps.google.com/?q=Herengracht, 1018 Amsterdam, Netherlands"><i class="fa fa-map"></i> Directions</a></li>
-            <li class="white-text"><i class="fa fa-envelope" > </i> Email us tbrefugees@gmail.com</li>
-            <li><a href="https://twitter.com/TalentsBeyondRF" class="twitter-follow-button" data-show-count="false">Follow @TalentsBeyondRF</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>            
-          </ul>
-        </div>  
-        <div id="fb-root"></div>
-        <div class="col l3 s12 fb-like" data-href="https://www.facebook.com/TalentsBeyondRefugees/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
-      </div>    
-    </div>  
-          <div class="footer copyright center">
-        <div class="container white-text">
-          &copy; 2016 Stephen Brady. 
-          Powered by <a style="color: floralwhite" href="https://www.heroku.com/">Heroku</a> and <a style="color: floralwhite" href="http://materializecss.com/">Materializecss</a>.  
-          Hosted on <a style="color: floralwhite"  href="https://github.com/">Github pages</a>
-        </div>
-      </div>      
-  </footer>
-  <script src="js/main-7adfb16360.js"></script>
+    <!-- facebook -->
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-86353034-1');
+       ga('send', 'pageview');
+    </script>
+
+    <script src="scripts/vendor-4a2217e1f5.js"></script>
+
+    <script src="scripts/scripts-d24dc1b01b.js"></script>
+    <script>
+      var mymap = L.map('mapid').setView([52.365441, 4.900343], 18);
+
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+          '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+          'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        id: 'mapbox.streets'
+      }).addTo(mymap);
+
+      L.marker([52.365441, 4.900343]).addTo(mymap)
+        .bindPopup("<a href='http://maps.google.com/?q=Herengracht, 1018 Amsterdam, Netherlands'><b>1018 Amsterdam, Netherlands</b></a>").openPopup();
+
+      var popup = L.popup();          
+    </script>
   </body>
 </html>
